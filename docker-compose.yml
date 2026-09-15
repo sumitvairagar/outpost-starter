@@ -1,0 +1,46 @@
+# Local infrastructure for Outpost. The Spring Boot app runs from your IDE / mvn, not in compose.
+#   docker compose up -d        start
+#   docker compose down -v      stop and wipe data
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: outpost-postgres
+    environment:
+      POSTGRES_DB: outpost
+      POSTGRES_USER: outpost
+      POSTGRES_PASSWORD: outpost
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U outpost -d outpost"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # S3-compatible object storage for pitch-deck uploads (Week 3). Console: http://localhost:9001
+  minio:
+    image: minio/minio:latest
+    container_name: outpost-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: outpost
+      MINIO_ROOT_PASSWORD: outpost123
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - miniodata:/data
+
+  # Catches all outgoing email in dev. UI: http://localhost:8025  SMTP: localhost:1025
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: outpost-mailpit
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+volumes:
+  pgdata:
+  miniodata:
