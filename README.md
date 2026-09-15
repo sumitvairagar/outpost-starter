@@ -2,6 +2,7 @@
 
 Your own copy of the Outpost backend starts here. This repo gives you the **infrastructure** (database, object storage, mail catcher, CI, PR template, Definition of Done). **You build everything else.**
 
+Start here: [`docs/WHAT-IS-OUTPOST.md`](docs/WHAT-IS-OUTPOST.md) – the product on one page (sitemap, listing pattern, data model).
 Spec: [`docs/Outpost-Prod-Spec.pdf`](docs/Outpost-Prod-Spec.pdf) – the single source of truth. If it's not in there, it's not in scope.
 Rules: [`docs/DEFINITION_OF_DONE.md`](docs/DEFINITION_OF_DONE.md)
 
