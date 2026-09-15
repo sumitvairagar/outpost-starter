@@ -15,7 +15,8 @@ jobs:
         with:
           distribution: temurin
           java-version: "21"
-          cache: maven
+          # cache only once the project exists, otherwise setup-java fails looking for pom.xml
+          cache: ${{ hashFiles('**/pom.xml') != '' && 'maven' || '' }}
 
       - name: Build & test
         run: |
