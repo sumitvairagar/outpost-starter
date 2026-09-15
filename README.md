@@ -4,6 +4,7 @@ Your own copy of the Outpost backend starts here. This repo gives you the **infr
 
 Start here: [`docs/WHAT-IS-OUTPOST.md`](docs/WHAT-IS-OUTPOST.md) – the product on one page (sitemap, listing pattern, data model).
 Spec: [`docs/Outpost-Prod-Spec.pdf`](docs/Outpost-Prod-Spec.pdf) – the single source of truth. If it's not in there, it's not in scope.
+Backlog: [`docs/STORIES.md`](docs/STORIES.md) – every story with API shape, acceptance criteria, tests and reading.
 Rules: [`docs/DEFINITION_OF_DONE.md`](docs/DEFINITION_OF_DONE.md)
 
 ## Stack (fixed – don't debate, build)
